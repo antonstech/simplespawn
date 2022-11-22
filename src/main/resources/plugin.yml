@@ -1,0 +1,15 @@
+name: SimpleSpawn
+version: '${version}'
+main: org.simplespawn.main
+api-version: 1.19
+authors: [ antonstech ]
+description: A Simple Spawn plugin
+commands:
+  spawn:
+    description: Teleports you to the Spawn
+    usage: /<command>
+    aliases: sp
+
+  setspawn:
+    description: Sets the Spawn (Admin-Only)
+    usage: /<command>

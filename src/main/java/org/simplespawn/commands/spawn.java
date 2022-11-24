@@ -33,13 +33,13 @@ public class spawn implements CommandExecutor {
                 if (playerworldtype.equals("NORMAL") || playerworldtype.equals("CUSTOM")) {
                     teleport(sender, cmd, label, args);
                 } else {
-                    sender.sendMessage("&c You are not in the Overworld!");
+                    sender.sendMessage("§cYou are not in the Overworld!");
                 }
             } else {
                 teleport(sender, cmd, label, args);
             }
         } else {
-            sender.sendMessage("&c Only Players can use this Command!");
+            sender.sendMessage("§cOnly Players can use this Command!");
         }
 
 

@@ -7,7 +7,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.simplespawn.commands.*;
+import org.simplespawn.updatechecker.updatechecker;
 
+import java.text.MessageFormat;
 import java.util.logging.Logger;
 
 import org.simplespawn.metrics.Metrics;
@@ -27,6 +29,15 @@ public final class main extends JavaPlugin {
         plugin = this;
         Logger logger = plugin.getLogger();
         logger.info("SimpleSpawn is loading...");
+        new updatechecker(this).get_latest_version(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                logger.info("Running on the newest Version :)");
+            } else {
+                logger.warning("There is a new Version of SimpleSpawn available :)");
+                String string = MessageFormat.format("Currently running on {0}, {1} is available now", this.getDescription().getVersion(), version);
+                logger.info(string);
+            }
+        });
 
         // bStats Metrics
         Metrics metrics = new Metrics(this, 16910);
